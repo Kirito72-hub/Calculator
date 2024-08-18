@@ -24,6 +24,17 @@ body {
     height: 25%;
     background-color: #b0b0b0; /* Darker screen background color */
     margin-bottom: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    max-width: 90%;
+    overflow: hidden;
+    font-size: 5rem;
+    font-weight: 500;
+    background-color: rgb(96, 122, 96);
+    height: 8rem;
+    margin: 1.5rem;
+    color: beige;
 }
 
 .keypad {
