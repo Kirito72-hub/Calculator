@@ -9,8 +9,8 @@ body {
 
 .calculator {
     display: flex;
-    width: 25vw;
-    height: 40vw;
+    width: 30vw;
+    height: 45vw;
     justify-content: center;
     align-items: center;
     flex-direction: column;
