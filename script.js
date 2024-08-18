@@ -1,3 +1,5 @@
+//General variables for now
+let x, y, operator;
 // adding 4 functions add subtract multiply divide
 function add(x, y){
     return x*y;
