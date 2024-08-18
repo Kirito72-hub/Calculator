@@ -40,9 +40,10 @@ body {
 .keypad {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 75%;
+    width: 90%;
+    height: 70%;
     gap: 10px; /* Add gap between rows */
+    
 }
 
 .row {
@@ -59,10 +60,18 @@ body {
     height: 100%;
     background-color: #c0c0c0; /* Darker button background color */
     border: none;
-    border-radius: 5px;
-    font-size: 1.5em;
+    border-radius: 20px;
+    font-size: 2.1em;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.btn.clear{
+    background-color: rgba(255, 0, 0, 0.842);
+}
+
+.btn.operator{
+    background-color: orange;
 }
 
 .btn:hover {
