@@ -74,6 +74,10 @@ body {
     background-color: orange;
 }
 
+.btn.unique{
+    background-color: green;
+}
+
 .btn:hover {
     background-color: #a0a0a0; /* Darker button hover color */
 }
