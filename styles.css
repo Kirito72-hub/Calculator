@@ -1,0 +1,59 @@
+body {
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.calculator {
+    display: flex;
+    width: 50vw;
+    height: 65vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ccc; /* Darker keypad background color */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.screen {
+    width: 100%;
+    height: 25%;
+    background-color: #b0b0b0; /* Darker screen background color */
+    margin-bottom: 10px;
+}
+
+.keypad {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 75%;
+    gap: 10px; /* Add gap between rows */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 20%;
+    gap: 10px; /* Add gap between buttons */
+}
+
+.btn {
+    flex: 1;
+    max-width: calc(25% - 10px); /* Adjust width to account for gaps */
+    height: 100%;
+    background-color: #c0c0c0; /* Darker button background color */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #a0a0a0; /* Darker button hover color */
+}
