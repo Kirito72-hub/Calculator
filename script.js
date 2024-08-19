@@ -49,7 +49,7 @@ numberButtons.forEach(buttons => {
         updateDisplay(event.target.textContent);
     })
 })
-
+//pressing the operator button
 const operatorButton = document.querySelectorAll(".btn.operator");
 operatorButton.forEach(buttons => {
     buttons.addEventListener("click", (event) => {
@@ -59,7 +59,7 @@ operatorButton.forEach(buttons => {
         updateDisplay(displayValue);
     })
 })
-
+//pressing the equal button
 const equalButton = document.querySelectorAll(".btn.unique");
 equalButton.forEach(buttons => {
     buttons.addEventListener("click", (event) => {
@@ -69,6 +69,3 @@ equalButton.forEach(buttons => {
         
     })
 })
-
-// Make the calculator work! You’ll need to store the first number and second number that are input into the calculator, utilize the operator that the user selects, 
-// and then operate() on the two numbers when the user presses the “=” key.
