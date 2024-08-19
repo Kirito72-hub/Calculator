@@ -20,13 +20,21 @@ function divide(x, y){
 }
 
 //empty function for now will take 2 numbers and 1 operator and according to the operator will call operator function from the above ones
-function operator(x, y, operator){
-    return;
-}
+// function operator(x, y, operator){
+//     return;
+// }
 
 //function that update the display
 function updateDisplay(value){
-    const display = document.querySelectorAll(".screen");
+    const display = document.querySelector(".screen");
     displayValue += value;
     display.textContent = displayValue;
 }
+
+//Attach Event Listeners to Number Buttons
+const numberButtons = document.querySelectorAll(".btn.number");
+numberButtons.forEach(buttons => {
+    buttons.addEventListener("click", (event) => {
+        updateDisplay(event.target.textContent);
+    })
+})
