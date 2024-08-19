@@ -41,7 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 90%;
-    height: 70%;
+    height: 60%;
     gap: 10px; /* Add gap between rows */
     
 }
