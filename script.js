@@ -1,7 +1,7 @@
 //popluate screen input
 let displayValue = "";
 //General variables for now
-let x, y, operator;
+let x, y, opType;
 // adding 4 functions add subtract multiply divide
 function add(x, y){
     return x*y;
@@ -19,10 +19,21 @@ function divide(x, y){
     return x/y;
 }
 
-//empty function for now will take 2 numbers and 1 operator and according to the operator will call operator function from the above ones
-// function operator(x, y, operator){
-//     return;
-// }
+// empty function for now will take 2 numbers and 1 operator and according to the operator will call operator function from the above ones
+function operator(x, y, operator){
+    switch (opType) {
+        case '+':
+            return add(x, y);
+        case '-':
+            return subtract(x, y);
+        case '*':
+            return multiply(x, y);
+        case '/':
+            return divide(x, y);
+        default:
+            return null;
+    }
+}
 
 //function that update the display
 function updateDisplay(value){
@@ -38,3 +49,26 @@ numberButtons.forEach(buttons => {
         updateDisplay(event.target.textContent);
     })
 })
+
+const operatorButton = document.querySelectorAll(".btn.operator");
+operatorButton.forEach(buttons => {
+    buttons.addEventListener("click", (event) => {
+        x = parseInt(displayValue);
+        opType = event.target.textContent;
+        displayValue = "";
+        updateDisplay(displayValue);
+    })
+})
+
+const equalButton = document.querySelectorAll(".btn.unique");
+equalButton.forEach(buttons => {
+    buttons.addEventListener("click", (event) => {
+        y = parseInt(displayValue);
+        displayValue = "";
+        updateDisplay(operator(x, y, opType));
+        
+    })
+})
+
+// Make the calculator work! You’ll need to store the first number and second number that are input into the calculator, utilize the operator that the user selects, 
+// and then operate() on the two numbers when the user presses the “=” key.
