@@ -1,5 +1,7 @@
 let displayValue = "";
-let x, y, opType;
+let x = null; // First operand
+let y = null; // Second operand
+let opType = null; // Current operator
 
 // Corrected arithmetic functions
 function add(x, y) {
@@ -56,10 +58,15 @@ numberButtons.forEach(button => {
 const operatorButtons = document.querySelectorAll(".btn.operator");
 operatorButtons.forEach(button => {
     button.addEventListener("click", (event) => {
-        x = parseFloat(displayValue); // Use parseFloat for decimal numbers
+        if (x === null) {
+            x = parseFloat(displayValue);
+        } else if (opType) {
+            y = parseFloat(displayValue);
+            x = operator(x, y, opType); // Evaluate and store result in x
+            updateDisplay(x.toString());
+        }
         opType = event.target.textContent;
         displayValue = "";
-        updateDisplay(displayValue);
     });
 });
 
