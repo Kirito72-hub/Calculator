@@ -3,24 +3,28 @@ let displayValue = "";
 //General variables for now
 let x, y, opType;
 // adding 4 functions add subtract multiply divide
-function add(x, y){
-    return x+y;
+function add(x, y) {
+    return x + y;
 }
 
-function subtract(x, y){
-    return x-y;
+function subtract(x, y) {
+    return x - y;
 }
 
-function multiply(x, y){
-    return x*y;
+function multiply(x, y) {
+    return x * y;
 }
 
-function divide(x, y){
-    return x/y;
+function divide(x, y) {
+    if (y !== 0) {
+        return x / y;
+    } else {
+        return "Error"; // Handle division by zero
+    }
 }
 
 // empty function for now will take 2 numbers and 1 operator and according to the operator will call operator function from the above ones
-function operator(x, y, operator){
+function operator(x, y, opType) {
     switch (opType) {
         case '+':
             return add(x, y);
@@ -31,7 +35,7 @@ function operator(x, y, operator){
         case '/':
             return divide(x, y);
         default:
-            return null;
+            return "Error"; // Handle unknown operations
     }
 }
 
@@ -53,7 +57,7 @@ numberButtons.forEach(buttons => {
 const operatorButton = document.querySelectorAll(".btn.operator");
 operatorButton.forEach(buttons => {
     buttons.addEventListener("click", (event) => {
-        x = parseInt(displayValue);
+        x = parseFloat(displayValue);
         opType = event.target.textContent;
         displayValue = "";
         updateDisplay(displayValue);
@@ -63,7 +67,7 @@ operatorButton.forEach(buttons => {
 const equalButton = document.querySelectorAll(".btn.unique");
 equalButton.forEach(buttons => {
     buttons.addEventListener("click", (event) => {
-        y = parseInt(displayValue);
+        y = parseFloat(displayValue);
         displayValue = "";
         updateDisplay(operator(x, y, opType));
         
