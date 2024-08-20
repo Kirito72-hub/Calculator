@@ -1,4 +1,5 @@
 let displayValue = "";
+<<<<<<< HEAD
 let x = null; // First operand
 let y = null; // Second operand
 let opType = null; // Current operator
@@ -6,16 +7,24 @@ let opType = null; // Current operator
 // Corrected arithmetic functions
 function add(x, y) {
     return x + y; // Corrected to perform addition
+=======
+//General variables for now
+let x, y, opType;
+// adding 4 functions add subtract multiply divide
+function add(x, y){
+    return x+y;
+>>>>>>> parent of ae1fd2b (optimized the 4 operator functions)
 }
 
-function subtract(x, y) {
-    return x - y;
+function subtract(x, y){
+    return x-y;
 }
 
-function multiply(x, y) {
-    return x * y;
+function multiply(x, y){
+    return x*y;
 }
 
+<<<<<<< HEAD
 function divide(x, y) {
     if (y === 0) {
         return "Error"; // Handle division by zero
@@ -25,6 +34,14 @@ function divide(x, y) {
 
 // Function to perform operation based on the operator
 function operator(x, y, opType) {
+=======
+function divide(x, y){
+    return x/y;
+}
+
+// empty function for now will take 2 numbers and 1 operator and according to the operator will call operator function from the above ones
+function operator(x, y, operator){
+>>>>>>> parent of ae1fd2b (optimized the 4 operator functions)
     switch (opType) {
         case '+':
             return add(x, y);
@@ -35,7 +52,11 @@ function operator(x, y, opType) {
         case '/':
             return divide(x, y);
         default:
+<<<<<<< HEAD
             return "Error";
+=======
+            return null;
+>>>>>>> parent of ae1fd2b (optimized the 4 operator functions)
     }
 }
 
@@ -47,6 +68,7 @@ function updateDisplay(value) {
 
 // Attach Event Listeners to Number Buttons
 const numberButtons = document.querySelectorAll(".btn.number");
+<<<<<<< HEAD
 numberButtons.forEach(button => {
     button.addEventListener("click", (event) => {
         displayValue += event.target.textContent; // Append the clicked number
@@ -65,6 +87,18 @@ operatorButtons.forEach(button => {
             x = operator(x, y, opType); // Evaluate and store result in x
             updateDisplay(x.toString());
         }
+=======
+numberButtons.forEach(buttons => {
+    buttons.addEventListener("click", (event) => {
+        updateDisplay(event.target.textContent);
+    })
+})
+//pressing the operator button
+const operatorButton = document.querySelectorAll(".btn.operator");
+operatorButton.forEach(buttons => {
+    buttons.addEventListener("click", (event) => {
+        x = parseInt(displayValue);
+>>>>>>> parent of ae1fd2b (optimized the 4 operator functions)
         opType = event.target.textContent;
         displayValue = "";
     });
@@ -72,6 +106,7 @@ operatorButtons.forEach(button => {
 
 // Pressing the equal button
 const equalButton = document.querySelectorAll(".btn.unique");
+<<<<<<< HEAD
 equalButton.forEach(button => {
     button.addEventListener("click", () => {
         y = parseFloat(displayValue); // Use parseFloat for decimal numbers
@@ -94,6 +129,26 @@ clean.forEach(button => {
             y = 0;
             opType = null;
             updateDisplay(displayValue);
+=======
+equalButton.forEach(buttons => {
+    buttons.addEventListener("click", (event) => {
+        y = parseInt(displayValue);
+        displayValue = "";
+        updateDisplay(operator(x, y, opType));
+        
+    })
+})
+//clear buttons event listener
+const clearButton = document.querySelectorAll(".btn.clear");
+clearButton.forEach(buttons => {
+    buttons.addEventListener("click", (event) => {
+        if(event.target.textContent === "C")
+            updateDisplay(displayValue="");
+        else{
+            x=0;
+            y=0;
+            updateDisplay(displayValue="");
+>>>>>>> parent of ae1fd2b (optimized the 4 operator functions)
         }
     });
 });
