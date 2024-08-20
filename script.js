@@ -1,10 +1,9 @@
-//popluate screen input
 let displayValue = "";
-//General variables for now
 let x, y, opType;
-// adding 4 functions add subtract multiply divide
+
+// Corrected arithmetic functions
 function add(x, y) {
-    return x + y;
+    return x + y; // Corrected to perform addition
 }
 
 function subtract(x, y) {
@@ -16,14 +15,13 @@ function multiply(x, y) {
 }
 
 function divide(x, y) {
-    if (y !== 0) {
-        return x / y;
-    } else {
+    if (y === 0) {
         return "Error"; // Handle division by zero
     }
+    return x / y;
 }
 
-// empty function for now will take 2 numbers and 1 operator and according to the operator will call operator function from the above ones
+// Function to perform operation based on the operator
 function operator(x, y, opType) {
     switch (opType) {
         case '+':
@@ -35,54 +33,60 @@ function operator(x, y, opType) {
         case '/':
             return divide(x, y);
         default:
-            return "Error"; // Handle unknown operations
+            return "Error";
     }
 }
 
-//function that update the display
-function updateDisplay(value){
+// Function to update the display
+function updateDisplay(value) {
     const display = document.querySelector(".screen");
-    displayValue += value;
-    display.textContent = displayValue;
+    display.textContent = value; // Set the display value directly
 }
 
-//Attach Event Listeners to Number Buttons
+// Attach Event Listeners to Number Buttons
 const numberButtons = document.querySelectorAll(".btn.number");
-numberButtons.forEach(buttons => {
-    buttons.addEventListener("click", (event) => {
-        updateDisplay(event.target.textContent);
-    })
-})
-//pressing the operator button
-const operatorButton = document.querySelectorAll(".btn.operator");
-operatorButton.forEach(buttons => {
-    buttons.addEventListener("click", (event) => {
-        x = parseFloat(displayValue);
+numberButtons.forEach(button => {
+    button.addEventListener("click", (event) => {
+        displayValue += event.target.textContent; // Append the clicked number
+        updateDisplay(displayValue);
+    });
+});
+
+// Pressing the operator button
+const operatorButtons = document.querySelectorAll(".btn.operator");
+operatorButtons.forEach(button => {
+    button.addEventListener("click", (event) => {
+        x = parseFloat(displayValue); // Use parseFloat for decimal numbers
         opType = event.target.textContent;
         displayValue = "";
         updateDisplay(displayValue);
-    })
-})
-//pressing the equal button
+    });
+});
+
+// Pressing the equal button
 const equalButton = document.querySelectorAll(".btn.unique");
-equalButton.forEach(buttons => {
-    buttons.addEventListener("click", (event) => {
-        y = parseFloat(displayValue);
-        displayValue = "";
-        updateDisplay(operator(x, y, opType));
-        
-    })
-})
-//clear buttons event listener
-const clearButton = document.querySelectorAll(".btn.clear");
-clearButton.forEach(buttons => {
-    buttons.addEventListener("click", (event) => {
-        if(event.target.textContent === "C")
-            updateDisplay(displayValue="");
-        else{
-            x=0;
-            y=0;
-            updateDisplay(displayValue="");
+equalButton.forEach(button => {
+    button.addEventListener("click", () => {
+        y = parseFloat(displayValue); // Use parseFloat for decimal numbers
+        const result = operator(x, y, opType);
+        displayValue = result.toString(); // Convert result to string for display
+        updateDisplay(displayValue);
+    });
+});
+
+// Pressing the C/AC buttons
+const clean = document.querySelectorAll(".btn.clear");
+clean.forEach(button => {
+    button.addEventListener("click", (event) => {
+        if (event.target.textContent === "C") {
+            displayValue = "";
+            updateDisplay(displayValue);
+        } else {
+            displayValue = "";
+            x = 0;
+            y = 0;
+            opType = null;
+            updateDisplay(displayValue);
         }
-    })
-})
+    });
+});
