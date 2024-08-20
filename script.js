@@ -4,7 +4,7 @@ let displayValue = "";
 let x, y, opType;
 // adding 4 functions add subtract multiply divide
 function add(x, y){
-    return x*y;
+    return x+y;
 }
 
 function subtract(x, y){
