@@ -69,3 +69,16 @@ equalButton.forEach(buttons => {
         
     })
 })
+//clear buttons event listener
+const clearButton = document.querySelectorAll(".btn.clear");
+clearButton.forEach(buttons => {
+    buttons.addEventListener("click", (event) => {
+        if(event.target.textContent === "C")
+            updateDisplay(displayValue="");
+        else{
+            x=0;
+            y=0;
+            updateDisplay(displayValue="");
+        }
+    })
+})
