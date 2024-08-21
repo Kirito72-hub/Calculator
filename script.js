@@ -25,21 +25,27 @@ function divide(x, y) {
     }
 };
 
-// empty function for now will take 2 numbers and 1 operator and according to the operator will call operator function from the above ones
+// Function that takes 2 numbers and 1 operator and calls the appropriate function
 function operator(x, y, opType) {
+    let result;
     switch (opType) {
         case '+':
-            return add(x, y);
+            result = add(x, y);
+            break;
         case '-':
-            return subtract(x, y);
+            result = subtract(x, y);
+            break;
         case '*':
-            return multiply(x, y);
+            result = multiply(x, y);
+            break;
         case '/':
-            return divide(x, y);
+            result = divide(x, y);
+            break;
         default:
             return "Error"; // Handle unknown operations
-    };
-};
+    }
+    return result.toFixed(2); // Format result to 2 decimal places
+}
 
 //function that update the display
 function updateDisplay(value){
