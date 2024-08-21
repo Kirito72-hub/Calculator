@@ -62,6 +62,7 @@ operatorButton.forEach(buttons => {
     buttons.addEventListener("click", (event) => {
         if(x !== null){
             equalButton.click();
+            opType = event.target.textContent;
         }else{
             x = parseFloat(displayValue);
             opType = event.target.textContent;
@@ -70,26 +71,7 @@ operatorButton.forEach(buttons => {
         }
     });
 });
-// //pressing the operator button
-// const operatorButton = document.querySelectorAll(".btn.operator");
-// operatorButton.forEach(buttons => {
-//     buttons.addEventListener("click", (event) => {
-//         x = parseFloat(displayValue);
-//         opType = event.target.textContent;
-//         displayValue = "";
-//         updateDisplay(displayValue);
-//     });
-// });
-// //pressing the equal button
-// const equalButton = document.querySelectorAll(".btn.unique");
-// equalButton.forEach(buttons => {
-//     buttons.addEventListener("click", (event) => {
-//         y = parseFloat(displayValue);
-//         displayValue = "";
-//         updateDisplay(operator(x, y, opType));
-        
-//     })
-// })
+//equal button action
 const equalButton = document.querySelector(".btn.unique");
 equalButton.addEventListener("click", (event) => {
     y = parseFloat(displayValue);
